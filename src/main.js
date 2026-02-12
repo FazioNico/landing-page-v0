@@ -5,7 +5,7 @@ import { setupCounter } from './counter.js'
 
 document.querySelector('#app').innerHTML = `
   <div>
-    <h1>Vite + JavaScript</h1>
+    <h1>Vite</h1>
   </div>
 `
 
