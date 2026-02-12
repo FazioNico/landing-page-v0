@@ -7,5 +7,8 @@ document.querySelector('#app').innerHTML = `
   <main>
     <h1>Main content</h1>
   </main>
+  <footer>
+    <span>Copyright 2026</span>
+  </footer>
 `;
 
