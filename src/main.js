@@ -1,8 +1,9 @@
 import './style.css'
 
 document.querySelector('#app').innerHTML = `
-  <div>
-    <h1>Vite</h1>
-  </div>
-`
+  <header>
+    <span>Vite + Vanilla</span>
+  </header>
+  <h1>Main content</h1>
+`;
 
