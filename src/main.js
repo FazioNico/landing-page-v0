@@ -1,39 +1,46 @@
 import "./style.css";
-import Chart from "chart.js/auto";
+import { data } from './data';
+import { createChart } from './chart';
+import { Footer } from './footerComponent';
+
+const user = {
+  firstName: "Nicolas",
+  lastName: "Fazio",
+};
+
+const fullUser = {
+  ...user,
+  birth: 1986,
+}
+user.firstName = "Nico";
+fullUser.firstName = "Nic";
+
+console.log(fullUser);
+console.log(user);
 
 document.querySelector("#app").innerHTML = `
   <header>
     <span>Vite + Vanilla</span>
   </header>
   <main>
-    <h1>Main content upd</h1>
+    <h1>Bonjour ${fullUser.firstName} j'ai ${new Date().getFullYear() - fullUser.birth} ans</h1>
+    ${Object.entries(fullUser).map(([key, value]) => `<p>${key}: ${value}</p>`).join("")}
     <canvas id="chart"></canvas>
-
+    <canvas id="chart2"></canvas>
   </main>
-  <footer>
-    <span>Copyright 2026</span>
-  </footer>
+  ${Footer}
 `;
 
-const data = [
-  { year: 2010, count: 10 },
-  { year: 2011, count: 20 },
-  { year: 2012, count: 15 },
-  { year: 2013, count: 25 },
-  { year: 2014, count: 22 },
-  { year: 2015, count: 30 },
-  { year: 2016, count: 28 },
-];
+createChart(
+  document.getElementById('chart'),
+  data
+);
 
-new Chart(document.getElementById("chart"), {
-  type: "bar",
-  data: {
-    labels: data.map((row) => row.year),
-    datasets: [
-      {
-        label: "Acquisitions by year",
-        data: data.map((row) => row.count),
-      },
-    ],
-  },
-});
+createChart(
+  document.getElementById('chart2'),
+  [
+    {year: 2020, count: 10},
+    {year: 2021, count: 20},
+    {year: 2022, count: 30},
+  ]
+);
